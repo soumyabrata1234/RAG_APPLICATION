@@ -1,0 +1,18 @@
+{
+  "name": "rag-pdf-chatbot",
+  "version": "1.0.0",
+  "description": "RAG-powered PDF Q&A chatbot using LangChain.js and Pinecone",
+  "private": true,
+  "workspaces": ["backend", "frontend"],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=backend\" \"npm run dev --workspace=frontend\"",
+    "build": "npm run build --workspace=frontend",
+    "start": "npm run start --workspace=backend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "overrides": {
+    "@langchain/google-genai": "0.1.11"
+  }
+}

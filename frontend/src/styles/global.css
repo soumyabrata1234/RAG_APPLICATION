@@ -1,0 +1,94 @@
+/* ─── Reset ─────────────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── Design Tokens ─────────────────────────────────────────────────────────── */
+:root {
+  --bg-base:       #0a0c0e;
+  --bg-surface:    #0f1215;
+  --bg-elevated:   #141820;
+  --bg-hover:      #1a2030;
+
+  --border:        #1e2535;
+  --border-bright: #2a3545;
+
+  --text-primary:   #e2e8f0;
+  --text-secondary: #8892a4;
+  --text-muted:     #4a5568;
+  --text-accent:    #00ff9d;
+
+  --accent:         #00ff9d;
+  --accent-dim:     rgba(0, 255, 157, 0.08);
+  --accent-glow:    rgba(0, 255, 157, 0.15);
+
+  --red:    #ff4757;
+  --amber:  #ffa502;
+  --blue:   #3b82f6;
+
+  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --font-ui:   "Space Grotesk", sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --transition: 160ms ease;
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────────────── */
+html { height: 100%; }
+
+body {
+  height: 100%;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root { height: 100%; }
+
+/* ─── Scrollbar ──────────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-bright); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ─── Selection ─────────────────────────────────────────────────────────────── */
+::selection { background: var(--accent-glow); color: var(--accent); }
+
+/* ─── Utility ───────────────────────────────────────────────────────────────── */
+.mono { font-family: var(--font-mono); }
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ─── Animations ────────────────────────────────────────────────────────────── */
+@keyframes fadeIn  { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes blink   { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+@keyframes pulse-border {
+  0%, 100% { border-color: var(--border); }
+  50%       { border-color: var(--accent-dim); }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.fade-in { animation: fadeIn 0.25s ease forwards; }
+
+/* ─── Scanline overlay ───────────────────────────────────────────────────────── */
+.scanlines::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.04) 2px,
+    rgba(0,0,0,0.04) 4px
+  );
+  pointer-events: none;
+  z-index: 1000;
+}

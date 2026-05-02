@@ -1,0 +1,85 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0a0b0d;
+  --bg-surface: #111318;
+  --bg-elevated: #181c23;
+  --bg-input: #1a1f28;
+  --border: rgba(255,255,255,0.07);
+  --border-active: rgba(74,222,128,0.4);
+  --text-primary: #e8eaf0;
+  --text-secondary: #6b7280;
+  --text-muted: #374151;
+  --accent: #4ade80;
+  --accent-dim: rgba(74,222,128,0.12);
+  --accent-glow: rgba(74,222,128,0.06);
+  --red: #f87171;
+  --red-dim: rgba(248,113,113,0.12);
+  --blue: #60a5fa;
+  --blue-dim: rgba(96,165,250,0.12);
+  --amber: #fbbf24;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Space Grotesk', sans-serif;
+  --radius: 6px;
+  --radius-lg: 10px;
+  --scrollbar-w: 4px;
+}
+
+html, body, #root { height: 100%; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+::-webkit-scrollbar { width: var(--scrollbar-w); }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
+
+/* markdown in messages */
+.msg-content h1, .msg-content h2, .msg-content h3 {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  margin: 1rem 0 0.5rem;
+  font-weight: 500;
+}
+.msg-content h1 { font-size: 1.1rem; }
+.msg-content h2 { font-size: 1rem; }
+.msg-content h3 { font-size: 0.9rem; }
+.msg-content p { margin-bottom: 0.6rem; line-height: 1.7; }
+.msg-content ul, .msg-content ol { padding-left: 1.4rem; margin-bottom: 0.6rem; }
+.msg-content li { margin-bottom: 0.3rem; line-height: 1.6; }
+.msg-content code {
+  font-family: var(--font-mono);
+  background: rgba(74,222,128,0.08);
+  border: 1px solid rgba(74,222,128,0.2);
+  color: var(--accent);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+.msg-content pre {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  overflow-x: auto;
+  margin-bottom: 0.6rem;
+}
+.msg-content pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.85rem;
+}
+.msg-content blockquote {
+  border-left: 2px solid var(--accent);
+  padding-left: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0.5rem 0;
+  font-style: italic;
+}
+.msg-content strong { color: var(--text-primary); font-weight: 600; }
