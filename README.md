@@ -75,7 +75,23 @@ rag-pdf-chatbot/
 └── README.md
 ```
 
-## Quick Start
+## 🐳 Run with Docker
+
+The fastest way to get the application up and running is by using the pre-built Docker image. The container statically serves the frontend and runs the backend API on a single port.
+
+```bash
+docker run -p 3001:3001 \
+  -e GOOGLE_API_KEY="your-gemini-key" \
+  -e PINECONE_API_KEY="your-pinecone-key" \
+  -e PINECONE_INDEX_NAME="soumya" \
+  soumyabrata80/rag_application:latest
+```
+
+After the container starts, simply navigate to `http://localhost:3001` in your browser.
+
+---
+
+## 🛠️ Local Development
 
 ### Prerequisites
 
