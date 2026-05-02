@@ -83,7 +83,7 @@ The fastest way to get the application up and running is by using the pre-built 
 docker run -p 3001:3001 \
   -e GOOGLE_API_KEY="your-gemini-key" \
   -e PINECONE_API_KEY="your-pinecone-key" \
-  -e PINECONE_INDEX_NAME="soumya" \
+  -e PINECONE_INDEX_NAME="your-pinecone-index" \
   soumyabrata80/rag_application:latest
 ```
 
